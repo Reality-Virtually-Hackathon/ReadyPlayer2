@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quote : MonoBehaviour {
+public class Quote  {
 	public string character;
 
 	public string text;

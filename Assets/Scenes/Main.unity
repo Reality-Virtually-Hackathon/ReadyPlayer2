@@ -185,36 +185,13 @@ GameObject:
   - component: {fileID: 117681624}
   - component: {fileID: 117681623}
   - component: {fileID: 117681622}
-  - component: {fileID: 117681621}
   m_Layer: 0
-  m_Name: New Text
+  m_Name: Hans Solo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &117681621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117681620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f7169c0eefe0f74dabb3a555fd2ac88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quotes:
-  - Han Solo. I'm captain of the Millennium Falcon.
-  - Chewie here tells me you're looking for passage to the Alderaan system.
-  - Fast ship?
-  - You've never heard of the Millennium Falcon?
-  - ' It''s the ship that made the Kessel run in less than twelve parsecs! '
-  - 'I''ve outrun Imperial starships, not the local bulk-cruisers, mind you. '
-  - 
-  - 
-  - 
-  - 
 --- !u!102 &117681622
 TextMesh:
   serializedVersion: 3
@@ -281,6 +258,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1219620384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1219620386}
+  m_Layer: 0
+  m_Name: Obi One
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219620386
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219620384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3, y: -0.68147075, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1233448260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1233448262}
+  - component: {fileID: 1233448261}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1233448261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233448260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7169c0eefe0f74dabb3a555fd2ac88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathToScript: Assets/script.txt
+  quotes: []
+--- !u!4 &1233448262
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233448260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3, y: -0.68147075, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2091883520
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +353,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2091883520}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &2091883522
 Behaviour:
   m_ObjectHideFlags: 0

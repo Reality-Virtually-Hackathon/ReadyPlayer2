@@ -1,34 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Text;
+using UnityEngine.UI;
+using System.IO;
+using System.Text;
 
 public class MovieScript : MonoBehaviour {
-	public List<Quote> script;
-	public Text scriptText;
+	public string pathToScript;
+	public List<Quote> quotes = new List<Quote>();
 
 	// Use this for initialization
 	void Start () {
-
-
+		parseScript(pathToScript);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+	private void parseScript(string file_path)
+	{
+		StreamReader inp_stm = new StreamReader(file_path);
+		while(!inp_stm.EndOfStream)
+		{
+			string inp_ln = inp_stm.ReadLine( );
+			var strArray = inp_ln.Split(':');
+			Debug.Log(inp_ln);
+			quotes.Add(new Quote(strArray[0], strArray[1]));
+		}
 
-	private void parseFile()
- {
-     string scriptText = File.ReadAllText("script");
- 
-     string[] quotes = script.Split(';');
- 
-     foreach(string quote in quotes)
-     {
-		 string character = quote.Split(':',0);
-		 string text = quote.Split(':',1);
-         script.Add(new Quote(character, text));
-     }
-}
+		inp_stm.Close( ); 
+	}
 }
