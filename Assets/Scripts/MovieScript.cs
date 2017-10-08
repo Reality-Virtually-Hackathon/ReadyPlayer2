@@ -36,7 +36,7 @@ public class MovieScript : MonoBehaviour {
 		
 	}
 	public void nextQuote(){
-        if (quoteIndex >= quotes.Count) quoteIndex = 0;
+        if (quoteIndex >= quotes.Count-1) quoteIndex = 0;
 		if(quotes[quoteIndex].character == "HAN"){
 			hanText.text = quotes[quoteIndex].text;
 			obiText.text = "";
