@@ -44,24 +44,16 @@ namespace HoloToolkit.Unity.InputModule.Tests
 
         private void ToggleRecording()
         {
-            if (isRecording)
-            {
-                isRecording = false;
                 StartCoroutine(DictationInputManager.StopRecording());
+                Debug.Log("stop recording");
                 speechToTextOutput.color = Color.white;
-                buttonRenderer.enabled = true;
-                recordLight.SetActive(false);
-                Debug.LogWarning("stop recording");
-            }
-            else
-            {
-                isRecording = true;
+                MovieScript.main.scoreText.text = MovieScript.main.scoreQuote(speechToTextOutput.text).ToString();
                 StartCoroutine(DictationInputManager.StartRecording(initialSilenceTimeout, autoSilenceTimeout, recordingTime));
+                MovieScript.main.nextQuote();
                 speechToTextOutput.color = Color.green;
                 recordLight.SetActive(true);
                 buttonRenderer.enabled = false;
                 Debug.LogWarning("start recording");
-            }
         }
 
         public void OnDictationHypothesis(DictationEventData eventData)
@@ -74,12 +66,14 @@ namespace HoloToolkit.Unity.InputModule.Tests
         {   
             Debug.LogWarning("OndictationResult");
             speechToTextOutput.text = eventData.DictationResult;
+            ToggleRecording();
         }
 
         public void OnDictationComplete(DictationEventData eventData)
         {
             Debug.LogWarning("onComplete");
             speechToTextOutput.text = eventData.DictationResult;
+
         }
 
         public void OnDictationError(DictationEventData eventData)
@@ -93,5 +87,6 @@ namespace HoloToolkit.Unity.InputModule.Tests
             Debug.LogError(eventData.DictationResult);
             StartCoroutine(DictationInputManager.StopRecording());
         }
+        
     }
 }
