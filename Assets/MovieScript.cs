@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Text;
-using UnityEngine.Networking;
 
 #if WINDOWS_UWP
 using Windows.Storage;
@@ -13,7 +12,7 @@ using Windows.Data.Xml.Dom;
 using System;
 #endif
 
-public class MovieScript : NetworkBehaviour {
+public class MovieScript : MonoBehaviour {
 	public TextAsset script;
 
 	public static MovieScript main;
@@ -24,6 +23,7 @@ public class MovieScript : NetworkBehaviour {
 	public TextMesh scoreText;
 
 	public int quoteIndex = 0;
+
 
 	// Use this for initialization
 	void Start () {
@@ -39,11 +39,13 @@ public class MovieScript : NetworkBehaviour {
         if (quoteIndex >= quotes.Count-1) quoteIndex = 0;
 		obiText.text = "";
 		hanText.text = "";
-		if(quotes[quoteIndex].character == "HAN" && isLocalPlayer){
-			hanText.text = quotes[quoteIndex].text;
+		if(quotes[quoteIndex].character == "HAN"){
+			Debug.Log("Hans turn");
+			hanText.text = "HAN: "+ quotes[quoteIndex].text;
 		}
-		if(quotes[quoteIndex].text == "BEN" && !isLocalPlayer){
-			obiText.text = quotes[quoteIndex].text;
+		if(quotes[quoteIndex].character == "BEN"){
+			Debug.Log("Bens turn");
+			obiText.text = "BEN: " + quotes[quoteIndex].text;
 		}
 		//scoreText.text = scoreQuote();
 		quoteIndex++;

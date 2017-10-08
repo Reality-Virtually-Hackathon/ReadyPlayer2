@@ -25,14 +25,13 @@ namespace HoloToolkit.Unity.InputModule.Tests
         [SerializeField]
         private TextMesh speechToTextOutput;
 
-
-        private Renderer buttonRenderer;
-
         private bool isRecording;
+
+        private MeshRenderer buttonRenderer;
 
         private void Awake()
         {
-            buttonRenderer = GetComponent<Renderer>();
+            buttonRenderer = this.GetComponent<MeshRenderer>();
         }
 
         public void OnInputClicked(InputClickedEventData eventData)
@@ -45,19 +44,20 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 StartCoroutine(DictationInputManager.StopRecording());
                 Debug.Log("stop recording");
                 speechToTextOutput.color = Color.white;
-                MovieScript.main.scoreText.text = MovieScript.main.scoreQuote(speechToTextOutput.text).ToString();
+                MovieScript.main.scoreText.text ="%"+ (MovieScript.main.scoreQuote(speechToTextOutput.text)*100).ToString();
                 StartCoroutine(DictationInputManager.StartRecording(initialSilenceTimeout, autoSilenceTimeout, recordingTime));
                 MovieScript.main.nextQuote();
                 speechToTextOutput.text = "...";
                 speechToTextOutput.color = Color.green;
-                buttonRenderer.enabled = false;
                 Debug.LogWarning("start recording");
         }
 
         public void OnDictationHypothesis(DictationEventData eventData)
         {
             Debug.LogWarning("OnDictationHypothesis");
+            speechToTextOutput.color = Color.green;
             speechToTextOutput.text = eventData.DictationResult;
+            buttonRenderer.material.color = Color.green;
         }
 
         public void OnDictationResult(DictationEventData eventData)
@@ -70,6 +70,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public void OnDictationComplete(DictationEventData eventData)
         {
             Debug.LogWarning("onComplete");
+            buttonRenderer.material.color = Color.white;
             speechToTextOutput.text = eventData.DictationResult;
             ToggleRecording();
         }
@@ -78,8 +79,8 @@ namespace HoloToolkit.Unity.InputModule.Tests
         {
             Debug.LogWarning("onDictationError");
             isRecording = false;
+            buttonRenderer.material.color = Color.red;
             speechToTextOutput.color = Color.red;
-            buttonRenderer.enabled = true;
             speechToTextOutput.text = eventData.DictationResult;
             Debug.LogError(eventData.DictationResult);
             StartCoroutine(DictationInputManager.StopRecording());

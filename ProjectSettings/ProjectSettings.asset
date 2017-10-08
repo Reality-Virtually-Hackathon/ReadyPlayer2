@@ -11,8 +11,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Microsoft Corporation
-  productName: 'Mixed Reality Academy: Project Island'
+  companyName: PlayerReady2
+  productName: PlayerReady2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -532,7 +532,7 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: ProjectIsland
+  metroPackageName: PlayerReady
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
@@ -541,7 +541,7 @@ PlayerSettings:
   metroCertificateNotAfter: 002ab6a9eab0d301
   metroApplicationDescription: Project Island
   wsaImages: {}
-  metroTileShortName: Project Island
+  metroTileShortName: PlayerReady
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
