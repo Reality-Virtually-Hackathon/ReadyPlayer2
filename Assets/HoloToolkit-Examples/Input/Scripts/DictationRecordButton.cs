@@ -50,6 +50,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 MovieScript.main.scoreText.text = MovieScript.main.scoreQuote(speechToTextOutput.text).ToString();
                 StartCoroutine(DictationInputManager.StartRecording(initialSilenceTimeout, autoSilenceTimeout, recordingTime));
                 MovieScript.main.nextQuote();
+                speechToTextOutput.text = "...";
                 speechToTextOutput.color = Color.green;
                 recordLight.SetActive(true);
                 buttonRenderer.enabled = false;
@@ -73,7 +74,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
         {
             Debug.LogWarning("onComplete");
             speechToTextOutput.text = eventData.DictationResult;
-
+            ToggleRecording();
         }
 
         public void OnDictationError(DictationEventData eventData)
